@@ -15,7 +15,6 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("unused")
 public class ModBlocks {
 
     private static List<Block> BLOCKS;
@@ -38,7 +37,7 @@ public class ModBlocks {
                         .sound(SoundType.METAL)
                         .hardnessAndResistance(3f)
                         .harvestTool(ToolType.PICKAXE))
-                .setRegistryName(Registries.RUBY_BLOCK)
+                .setRegistryName(Registries.SAPPHIRE_BLOCK)
         );
 
         BLOCKS.add(RUBY_BLOCK = new Block(
@@ -52,6 +51,7 @@ public class ModBlocks {
 
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
+        @SuppressWarnings("unused")
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
             for (Block block: BLOCKS) {
@@ -59,6 +59,7 @@ public class ModBlocks {
             }
         }
 
+        @SuppressWarnings("ConstantConditions")
         @SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
             Item.Properties properties = new Item.Properties().group(JANOEO.setup.janoeoItemGroup);
